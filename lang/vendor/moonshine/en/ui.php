@@ -42,7 +42,6 @@ return [
         'title' => 'Sigue Capa Virtual',
         'description' => 'Por favor ingresa con tu cuenta de correo institucional',
         'authorization' => 'Authorization',
-        'remember_me' => 'Remember me',//no quiero que aparezca esto
         'login' => 'Inicia Sesión',
         'logout' => 'Log out',
         'username' => 'correo electronico institucional',

@@ -38,13 +38,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
                 Footer::make()
                     ->copyright(fn(): string => sprintf(
                         <<<'HTML'
-                            &copy; 2021-%d Made with ❤️ by
-                            <a href="https://cutcode.dev"
-                                class="font-semibold text-primary hover:text-secondary"
-                                target="_blank"
-                            >
-                                CutCode
-                            </a>
+                             2024 DECEyEC, Capa Virtual
                         HTML,
                         now()->year
                     ))

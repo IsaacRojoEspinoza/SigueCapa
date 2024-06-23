@@ -39,15 +39,15 @@ return [
         'mark_as_read' => 'Mark as read',
     ],
     'login' => [
-        'title' => 'Welcome to :moonshine_title!',
-        'description' => 'Please sign-in to your account',
+        'title' => 'Sigue Capa Virtual',
+        'description' => 'Por favor ingresa con tu cuenta de correo institucional',
         'authorization' => 'Authorization',
-        'remember_me' => 'Remember me',
-        'login' => 'Log in',
+        'remember_me' => 'Remember me',//no quiero que aparezca esto
+        'login' => 'Inicia Sesión',
         'logout' => 'Log out',
-        'username' => 'Username',
+        'username' => 'correo electronico institucional',
         'email' => 'E-mail',
-        'password' => 'Password',
+        'password' => 'Contraseña',
         'or_socials' => 'or',
     ],
     'resource' => [

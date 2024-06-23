@@ -5,7 +5,7 @@
     <style>
         body, html {
             height: 100%;
-            margin: 0;
+            margin: 0;/* Color de fondo que desees */
         }
         .full-height {
             height: 100%;
@@ -20,8 +20,8 @@
             width: 100%;
             height: 100%;
             display: none;
-            overflow: hidden; /* Para evitar barras de desplazamiento */
-            background-color: #98005B;
+            overflow: hidden; 
+            background-color: #4A255C;/* Para evitar barras de desplazamiento */
         }
         /* Estilos adicionales que desees aplicar */
     </style>
@@ -42,8 +42,7 @@
 </head>
 <body>
     <div class="flex-center position-ref full-height">
-            <div id="moonshine-login"></div>
-        </div>
+        <div id="moonshine-login"></div>
     </div>
 </body>
 </html>

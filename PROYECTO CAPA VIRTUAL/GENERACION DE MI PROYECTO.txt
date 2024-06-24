@@ -1,0 +1,127 @@
+GENERACION DE MI PROYECTO:
+
+1.- composer create-project laravel/laravel SigueCapa 10.2.^
+
+Instalacion de moonshine
+
+2.- composer require moonshine/moonshine
+3.- php artisan moonshine:install
+4.- php artisan moonshine:user
+
+
+Instalacion de Spatie Laravel Permissions
+
+
+5.- composer require spatie/laravel-permission
+6.-
+-----------------------------------------------------------------------------------
+
+	 'providers' => [
+    		Spatie\Permission\PermissionServiceProvider::class,
+			];
+------------------------------------------------------------------------------------
+
+
+add model user: HasRoles
+
+
+7.-  php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+8.-  php artisan optimize:clear
+9.-  php artisan config:clear
+10.- php artisan migrate
+
+user : 
+
+--------------------------------------------------------------------------------
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
+
+class User extends Authenticatable
+{
+    use HasRoles;
+
+    // ...
+}
+
+---------------------------------------------------------------------------------
+
+GENERAR RECURSOS
+
+11.- php artisan  moonshine:resource RoleResource
+12.- php artisan  moonshine:resource UserResource
+
+
+INSTALACION DE  moonshine-roles-permissions
+
+
+1.- composer require sweet1s/moonshine-roles-permissions
+2.- Chage the model :
+---------------------------------------------------------------------
+return [
+    // ...
+    'auth' => [
+        // ...
+        'providers' => [
+            'moonshine' => [
+                'driver' => 'eloquent',
+                'model' => \App\Models\User::class,// this line add or change
+            ],
+        ],
+    ],
+    // ...
+];
+----------------------------------------------------------------------
+3.- 
+In the Spatie permission config file, change the models.role to App\Models\Role::class (Model need extend \Spatie\Permission\Models\Role), like this:
+'models' => [
+    // ...
+    'role' => App\Models\Role::class,
+],
+
+-----------------------------------------------------------------------
+
+For your Role model, add the following:
+<?php
+
+namespace App\Models;
+
+use Sweet1s\MoonshineRBAC\Traits\HasMoonShineRolePermissions;
+use Spatie\Permission\Models\Role as SpatieRole;
+
+class Role extends SpatieRole
+{
+    use HasMoonShineRolePermissions;
+
+    protected $with = ['permissions'];
+}
+
+
+--------------------------------------------------------
+
+For the user model, add the following:
+<?php
+
+namespace App\Models;
+
+// ...
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+use Sweet1s\MoonshineRBAC\Traits\MoonshineRBACHasRoles;
+
+class User extends Authenticatable
+{
+    use MoonshineRBACHasRoles;
+
+    const SUPER_ADMIN_ROLE_ID = 1;
+
+    // ...
+}
+
+
+
+--------------------------------
+php artisan moonshine-rbac:install
+php artisan moonshine-rbac:user
+---------------------------
+
+

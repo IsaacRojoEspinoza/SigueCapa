@@ -55,14 +55,21 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     protected function menu(): array
     {
         return [
-            MenuGroup::make('Administracion', [
-                MenuItem::make('Usuarios', new \Sweet1s\MoonshineRBAC\Resource\UserResource(), 'heroicons.outline.users'),
+
+            MenuItem::make('Pagina de Inicio', '/admin','heroicons.outline.home') 
+            ->forceActive(fn() => request()->fullUrlIs('/admin')),
+
+            MenuGroup::make('Configuración', [
+                MenuItem::make('Vocales Locales', new \Sweet1s\MoonshineRBAC\Resource\UserResource(), 'heroicons.outline.users'),
                 MenuItem::make('Roles', new \Sweet1s\MoonshineRBAC\Resource\RoleResource(), 'heroicons.outline.shield-exclamation'),
                 MenuItem::make('Permisos', new \Sweet1s\MoonshineRBAC\Resource\PermissionResource(), 'heroicons.outline.shield-exclamation'),
-            ], 'heroicons.outline.user-group'),
+            ], 'heroicons.outline.cog-6-tooth'),
 
-            MenuItem::make('Pagina de Inicio', '/admin')
-            ->forceActive(fn() => request()->fullUrlIs('/admin')), 
+            MenuGroup::make('Movimientos', [
+                MenuItem::make('Alta de usuarios', new \Sweet1s\MoonshineRBAC\Resource\UserResource(), 'heroicons.outline.user-plus'),
+                MenuItem::make('Susticiones', new \Sweet1s\MoonshineRBAC\Resource\RoleResource(), 'heroicons.outline.user-group'),
+                MenuItem::make('Correcion de datos', new \Sweet1s\MoonshineRBAC\Resource\PermissionResource(), 'heroicons.outline.pencil-square'),
+            ], 'heroicons.outline.square-3-stack-3d'),
         ];
     }
 

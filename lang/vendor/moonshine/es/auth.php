@@ -13,12 +13,13 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'Estas credenciales no coinciden con nuestros registros.',
+    'password' => 'La contraseña proporcionada es incorrecta.',
+    'throttle' => 'Demasiados intentos de inicio de sesión. Por favor, inténtelo de nuevo en :seconds segundos.',
 
     'socialite' => [
-        'link_exists' => 'Account already exists',
-        'link_success' => 'Account linked',
-    ]
+        'link_exists' => 'La cuenta ya existe',
+        'link_success' => 'Cuenta vinculada',
+    ],
+
 ];

@@ -43,8 +43,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
                         now()->year
                     ))
                     ->menu([
-                        'https://moonshine-laravel.com/docs' => 'Documentation',
-                    ]),
+                                          ]),
             ])->customAttributes(['class' => 'layout-page']),
         ]);
     }

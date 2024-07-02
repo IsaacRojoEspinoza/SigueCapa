@@ -55,12 +55,14 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     protected function menu(): array
     {
         return [
-            MenuGroup::make('System', [
+            MenuGroup::make('Administracion', [
                 MenuItem::make('Usuarios', new \Sweet1s\MoonshineRBAC\Resource\UserResource(), 'heroicons.outline.users'),
                 MenuItem::make('Roles', new \Sweet1s\MoonshineRBAC\Resource\RoleResource(), 'heroicons.outline.shield-exclamation'),
                 MenuItem::make('Permisos', new \Sweet1s\MoonshineRBAC\Resource\PermissionResource(), 'heroicons.outline.shield-exclamation'),
             ], 'heroicons.outline.user-group'),
-            
+
+            MenuItem::make('Pagina de Inicio', '/admin')
+            ->forceActive(fn() => request()->fullUrlIs('/admin')), 
         ];
     }
 

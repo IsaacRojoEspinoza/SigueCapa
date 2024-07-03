@@ -10,6 +10,7 @@ use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
 use App\MoonShine\Resources\MoonShineUserResource;
 use App\MoonShine\Resources\MoonShineUserRoleResource;
+use App\MoonShine\Pages\CreateUser;
 use MoonShine\Contracts\Resources\ResourceContract;
 use MoonShine\Menu\MenuElement;
 use MoonShine\Pages\Page;
@@ -66,7 +67,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             ], 'heroicons.outline.cog-6-tooth'),
 
             MenuGroup::make('Movimientos', [
-                MenuItem::make('Alta de usuarios', new \Sweet1s\MoonshineRBAC\Resource\UserResource(), 'heroicons.outline.user-plus'),
+                MenuItem::make('Alta de usuarios', new CreateUser(), 'heroicons.outline.user-plus'),
                 MenuItem::make('Susticiones', new \Sweet1s\MoonshineRBAC\Resource\RoleResource(), 'heroicons.outline.user-group'),
                 MenuItem::make('Correcion de datos', new \Sweet1s\MoonshineRBAC\Resource\PermissionResource(), 'heroicons.outline.pencil-square'),
             ], 'heroicons.outline.square-3-stack-3d'),

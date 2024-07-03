@@ -45,7 +45,7 @@ class Dashboard extends Page
 
             Grid::make([
                 Column::make([
-                    ValueMetric::make('Almunos Inscritos')
+                    ValueMetric::make('Alumnos Inscritos')
                         ->value(User::query()->count()),
                 ])->columnSpan(6),
 
